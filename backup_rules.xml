@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  This controls the OS-level auto-backup (Android's own cloud backup of app data),
+  which is separate from this app's own JSON/CSV export feature (section 30 of the spec).
+  We exclude the Room database and progress photos from OS auto-backup so a device
+  restore does not silently duplicate or corrupt local data; users should rely on the
+  app's own explicit export/import instead.
+-->
+<full-backup-content>
+    <exclude domain="database" path="." />
+    <exclude domain="file" path="progress_photos/" />
+</full-backup-content>
